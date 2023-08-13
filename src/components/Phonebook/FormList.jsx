@@ -3,7 +3,7 @@ import { ContactFilter } from './ContactFilter';
 export const FormList = ({
   contacts,
   contactFilter,
-  onChangeContact,
+  onChangeFilter,
   onDeleteContact,
 }) => {
   const filteredContacts = contacts.filter(contact =>
@@ -12,7 +12,7 @@ export const FormList = ({
 
   return (
     <div>
-      <ContactFilter value={contactFilter} onChange={onChangeContact} />
+      <ContactFilter value={contactFilter} onChange={onChangeFilter} />
       <ul>
         {filteredContacts.map(contact => (
           <li key={contact.id}>

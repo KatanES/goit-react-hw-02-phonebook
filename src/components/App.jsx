@@ -52,7 +52,7 @@ export class App extends Component {
         <FormList
           contacts={visibleContactItems}
           contactFilter={contactFilter}
-          onChangeContact={this.changeContactFilter}
+          onChangeFilter={this.changeContactFilter}
           onDeleteContact={this.deleteContact}
         />
       </div>
