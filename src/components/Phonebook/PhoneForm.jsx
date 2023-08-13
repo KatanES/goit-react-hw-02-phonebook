@@ -17,12 +17,12 @@ const schema = Yup.object().shape({
     .max(50, 'Too Long!'),
 });
 
-export const PhoneForm = ({ onAdd }) => {
+export const PhoneForm = ({ onAdd, name, number }) => {
   return (
     <Formik
       initialValues={{
-        name: '',
-        number: '',
+        name: name || '', // Змінено тут
+        number: number || '', // Змінено тут
       }}
       validationSchema={schema}
       onSubmit={(values, actions) => {

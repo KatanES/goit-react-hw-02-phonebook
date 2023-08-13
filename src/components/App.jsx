@@ -1,13 +1,11 @@
 import { Component } from 'react';
 import { PhoneForm } from './Phonebook/PhoneForm';
-import { ListItem } from './Phonebook/FormList';
+import { FormList } from './Phonebook/FormList';
 import { nanoid } from 'nanoid';
 
 export class App extends Component {
   state = {
     contacts: [],
-    name: '',
-    number: '',
     contactFilter: '',
   };
 
@@ -44,17 +42,15 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, name, number, contactFilter } = this.state;
+    const { contacts, contactFilter } = this.state;
     const visibleContactItems = contacts.filter(contact =>
       contact.name.toLowerCase().includes(contactFilter.toLowerCase())
     );
     return (
       <div>
         <PhoneForm onAdd={this.addItem} />
-        <ListItem
+        <FormList
           contacts={visibleContactItems}
-          name={name}
-          number={number}
           contactFilter={contactFilter}
           onChangeContact={this.changeContactFilter}
           onDeleteContact={this.deleteContact}
@@ -63,3 +59,16 @@ export class App extends Component {
     );
   }
 }
+
+export const ContactFilter = ({ value, onChange }) => {
+  return (
+    <div>
+      <h2>Find contacts by name</h2>
+      <input
+        type="text"
+        value={value}
+        onChange={evt => onChange(evt.target.value)}
+      ></input>
+    </div>
+  );
+};

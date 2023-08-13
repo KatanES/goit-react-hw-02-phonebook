@@ -1,6 +1,6 @@
 import { ContactFilter } from './ContactFilter';
 
-export const ListItem = ({
+export const FormList = ({
   contacts,
   contactFilter,
   onChangeContact,
